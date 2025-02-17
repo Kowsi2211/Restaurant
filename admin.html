@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="admin-container">
+        <h2>Admin Dashboard</h2>
+        <a href="index.html" class="logout-btn">Logout</a>
+
+        <!-- Users Section -->
+        <h3>Registered Users</h3>
+        <table id="userTable">
+            <thead>
+                <tr>
+                    <th>Email</th>
+                    <th>Password (Hidden)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Users will be loaded here -->
+            </tbody>
+        </table>
+
+        <!-- Reservations Section -->
+        <h3>Reservations</h3>
+        <table id="reservationTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Contact</th>
+                    <th>Guests</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Requests</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Reservations will be loaded here -->
+            </tbody>
+        </table>
+
+        <!-- Feedback Section -->
+        <h3>Feedback</h3>
+        <table id="feedbackTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Message</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Feedback will be loaded here -->
+            </tbody>
+        </table>
+
+        <!-- Orders Section -->
+        <h3>Orders</h3>
+        <table id="orderTable">
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>Item</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Delivery Option</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Orders will be loaded here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

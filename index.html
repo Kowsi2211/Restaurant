@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Authentication Sidebar -->
+    <div class="auth-sidebar" id="authSidebar">
+        <div class="auth-container">
+            <button class="close-btn" onclick="toggleAuthSidebar()">&times;</button>
+            <h2 id="authTitle">Login</h2>
+            <form id="authForm">
+                <label for="email">Email:</label>
+                <input type="email" id="email" required placeholder="Enter your email">
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" required placeholder="Enter your password">
+
+                <button type="submit">Submit</button>
+                <p id="toggleForm">
+                    Don't have an account? <a href="#" onclick="openSignup()">Sign up</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Buttons for Login, Signup, Admin Login -->
+    <div class="auth-buttons" id="authButtons">
+        <button onclick="openLogin()">Login</button>
+        <button onclick="openSignup()">Signup</button>
+        <button onclick="openAdminLogin()">Admin Login</button>
+    </div>
+
+    <div class="container">
+        <div>
+            <a href="#"><img src="./images/logo.jpg" alt="Logo" height="80px"></a>
+        </div>
+        
+        <div class="opt">
+            <p><a href="#"><input type="button" value="Home"></a></p>
+            <p><a href="#Menu"><input type="button" value="Menu"></a></p>
+            <p><a href="#Order"><input type="button" value="Order"></a></p>
+            <p><a href="#Reservation"><input type="button" value="Reservation"></a></p>
+            <p><a href="#AboutUs"><input type="button" value="About"></a></p>
+            <p><a href="#ContactUs"><input type="button" value="Contact us"></a></p>
+        </div>
+        <div class="content">
+            <p>Are You Starving?</p>
+            <p>You're in the right place 😊</p>
+        </div>
+    </div>
+
+    <div id="Menu" class="menu">
+        <h2>Menu</h2>
+        <div class="grid-container">
+            <div class="item">
+                <img src="./images/one.jpg" alt="Dumplings" height="250" width="300">
+                <h4>Dumplings</h4>
+                <div class="quantity-controls">
+                    <button class="quantity-btn" onclick="changeQuantity('Dumplings', -1)">-</button>
+                    <span id="quantity-Dumplings" class="quantity">0</span>
+                    <button class="quantity-btn" onclick="changeQuantity('Dumplings', 1)">+</button>
+                </div>
+            </div>
+            <div class="item">
+                <img src="./images/two.jpg" alt="Hot pot" height="250" width="300">
+                <h4>Hot pot</h4>
+                <div class="quantity-controls">
+                    <button class="quantity-btn" onclick="changeQuantity('Hot pot', -1)">-</button>
+                    <span id="quantity-Hot pot" class="quantity">0</span>
+                    <button class="quantity-btn" onclick="changeQuantity('Hot pot', 1)">+</button>
+                </div>
+            </div>
+            <div class="item">
+                <img src="./images/three.jpg" alt="Asian Lettuce wrap" height="250" width="300">
+                <h4>Asian Lettuce wrap</h4>
+                <div class="quantity-controls">
+                    <button class="quantity-btn" onclick="changeQuantity('Asian Lettuce wrap', -1)">-</button>
+                    <span id="quantity-Asian Lettuce wrap" class="quantity">0</span>
+                    <button class="quantity-btn" onclick="changeQuantity('Asian Lettuce wrap', 1)">+</button>
+                </div>
+            </div>
+            <div class="item">
+                <img src="./images/four.jpg" alt="Chicken chow mein" height="250" width="300">
+                <h4>Chicken chow mein</h4>
+                <div class="quantity-controls">
+                    <button class="quantity-btn" onclick="changeQuantity('Chicken chow mein', -1)">-</button>
+                    <span id="quantity-Chicken chow mein" class="quantity">0</span>
+                    <button class="quantity-btn" onclick="changeQuantity('Chicken chow mein', 1)">+</button>
+                </div>
+            </div>
+            <div class="item">
+                <img src="./images/five.jpg" alt="Veg-fried rice" height="250" width="300">
+                <h4>Veg-fried rice</h4>
+                <div class="quantity-controls">
+                    <button class="quantity-btn" onclick="changeQuantity('Veg-fried rice', -1)">-</button>
+                    <span id="quantity-Veg-fried rice" class="quantity">0</span>
+                    <button class="quantity-btn" onclick="changeQuantity('Veg-fried rice', 1)">+</button>
+                </div>
+            </div>
+            <div class="item">
+                <img src="./images/six.jpg" alt="Spring roll" height="250" width="300">
+                <h4>Spring roll</h4>
+                <div class="quantity-controls">
+                    <button class="quantity-btn" onclick="changeQuantity('Spring roll', -1)">-</button>
+                    <span id="quantity-Spring roll" class="quantity">0</span>
+                    <button class="quantity-btn" onclick="changeQuantity('Spring roll', 1)">+</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="Order" class="order">
+        <h2>Order Summary</h2>
+        <table id="orderTable">
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>Item</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Delivery Option</th>
+                    <th>Remove</th>
+                </tr>
+            </thead>
+            <tbody id="order-items">
+                <!-- Filled dynamically with JavaScript -->
+            </tbody>
+        </table>
+        <button onclick="placeOrder()">Place Order</button>
+    </div>
+
+    <div id="Reservation" class="reservation">
+        <h2>Reservation</h2>
+        <form id="reservation-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required placeholder="Your name">
+
+            <label for="contact">Contact Number:</label>
+            <input type="text" id="contact" required placeholder="Your contact number">
+
+            <label for="guests">Number of Guests:</label>
+            <input type="number" id="guests" min="1" required placeholder="Number of guests">
+
+            <label for="date">Reservation Date:</label>
+            <input type="date" id="date" required>
+
+            <label for="time">Reservation Time:</label>
+            <input type="time" id="time" required>
+
+            <label for="special-requests">Special Requests:</label>
+            <textarea id="special-requests" placeholder="Any special requests?"></textarea>
+
+            <button type="submit">Make Reservation</button>
+        </form>
+    </div>
+    <div id="AboutUs">
+        <h2>About Us</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Our Story</h3>
+                <p>
+                    Welcome to Chinese Restaurant where we bring the best of Asian cuisine to your table. Our journey
+                    started with a passion for authentic flavors, a love for community, and a desire to create a warm
+                    and inviting space for people to enjoy great food.
+                </p>
+                <p>
+                    At Chinese Restaurant, we pride ourselves on offering a variety of dishes made from fresh, locally
+                    sourced ingredients. From dumplings to hot pots, our menu has something for everyone. Whether you’re
+                    here for a quick bite or a special celebration, we’re committed to delivering an exceptional dining
+                    experience.
+                </p>
+            </div>
+
+            <div class="about-team">
+                <h3>Meet Our Team</h3>
+                <div class="team-member">
+                    <img src="https://cdn.pixabay.com/photo/2024/01/13/18/38/chef-8506385_1280.jpg" alt="Chef"
+                        class="team-img">
+                    <div class="team-info">
+                        <h4>Chef John Doe</h4>
+                        <p>Our head chef with over 15 years of experience in Asian cuisine. Passionate about creating
+                            innovative dishes that stay true to traditional flavors.</p>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <img src="https://t4.ftcdn.net/jpg/09/84/97/09/360_F_984970901_8sJEXnAfFAQQT0804PnJ6TAHTYanbrea.jpg"
+                        alt="Manager" class="team-img">
+                    <div class="team-info">
+                        <h4>Sarah Lee</h4>
+                        <p>Our restaurant manager, ensuring every guest has a memorable dining experience with great
+                            service and attention to detail.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="ContactUs" class="contact-us">
+        <h2>Contact Us</h2>
+        <div class="contact-content">
+            <!-- Contact Form -->
+            <div class="contact-form">
+                <h3>Send Us a Message</h3>
+                <form id="contact-form">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="contact-name" required placeholder="Your name">
+    
+                    <label for="email">Your Email:</label>
+                    <input type="email" id="contact-email" required placeholder="Your email address">
+    
+                    <label for="message">Your Message:</label>
+                    <textarea id="contact-message" required placeholder="Write your message here"></textarea>
+    
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+
+            <!-- Location and Contact Information -->
+            <div class="contact-info">
+                <h3>Our Location</h3>
+                <p>Visit us at our location:</p>
+                <p>1234 Asian Street, Food City, ABC</p>
+                <p><strong>Phone:</strong> +123-456-7890</p>
+                <p><strong>Email:</strong> contact@restaurant.com</p>
+
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="https://facebook.com" target="_blank"><img
+                            src="https://img.freepik.com/premium-psd/facebook-social-media-icon-3d_466778-4384.jpg?semt=ais_hybrid"
+                            alt="Facebook"></a>
+                    <a href="https://instagram.com" target="_blank"><img
+                            src="https://w7.pngwing.com/pngs/336/165/png-transparent-instagram-instagram-logo-3d-instagram-logo-social-media-logo-application-3d-icon.png"
+                            alt="Instagram"></a>
+                    <a href="https://twitter.com" target="_blank"><img
+                            src="https://e7.pngegg.com/pngimages/708/311/png-clipart-icon-logo-twitter-logo-twitter-logo-blue-social-media-thumbnail.png"
+                            alt="Twitter"></a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+
+ <!--  -->
+
+
